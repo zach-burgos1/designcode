@@ -31,20 +31,21 @@ Stepper myStepper(stepsPerRevolution, PIN_L1_IN1, PIN_L1_IN2, PIN_L1_IN3, PIN_L1
 void setup() {
   // set the speed at 60 rpm: 
   // tested at 120
-  myStepper.setSpeed(180);
+  //myStepper.setSpeed(180);
+  myStepper.setSpeed(100);
   // initialize the serial port:
   Serial.begin(9600);
 }
 
 void loop() {
   // step one revolution  in one direction:
-  Serial.println("clockwise");
-  myStepper.step(8*stepsPerRevolution); 
+  Serial.println("clockwise"); // moves the belt away from stepper
+  myStepper.step(2*stepsPerRevolution); 
   delay(1000);
 
   // step one revolution in the other direction:
   Serial.println("counterclockwise");
-  myStepper.step(-8*stepsPerRevolution);
+  myStepper.step(-2*stepsPerRevolution);
   delay(1000);
 }
 
