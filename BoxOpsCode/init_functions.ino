@@ -1,4 +1,4 @@
-#include "definitions.h"
+#include "init_functions.h"
 
 void initL298NS(){
   pinMode(PIN_L1_EN1, OUTPUT);
@@ -27,3 +27,9 @@ void initL298NS(){
   pinMode(PIN_L4_IN2, OUTPUT);  
 }
 
+void retractLinAct(){
+
+}
+void extendLinAct(){
+  
+}

@@ -1,6 +1,5 @@
-
-
-
+#ifndef DEFINITIONS_H
+#define DEFINITIONS_H
 
 // STEPPERS
 const int STEPS_PER_REV = 400
@@ -38,3 +37,5 @@ const int PIN_L4_IN4 = -1;
 const int PIN_RELAY = -1;
 
 // SENSOR
+
+#endif // DEFINITIONS_H
