@@ -13,6 +13,8 @@ void setup() {
   pinMode(IN2_PIN, OUTPUT);
 
   digitalWrite(ENA_PIN, HIGH);
+
+  
 }
 
 // the loop function runs over and over again forever

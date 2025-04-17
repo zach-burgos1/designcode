@@ -16,10 +16,17 @@
  */
 
 #include <Stepper.h>
-const int PIN_L1_IN1 =  8;
-const int PIN_L1_IN2 =  9;
-const int PIN_L1_IN3 = 10;
-const int PIN_L1_IN4 = 11;
+// const int PIN_L1_IN1 =  47;
+// const int PIN_L1_IN2 =  49;
+// const int PIN_L1_IN3 =  51;
+// const int PIN_L1_IN4 =  53;
+
+const int PIN_L1_ENA = 2; 
+const int PIN_L1_ENB = 7; 
+const int PIN_L1_IN1 =  3;
+const int PIN_L1_IN2 =  4;
+const int PIN_L1_IN3 =  5;
+const int PIN_L1_IN4 =  6;
 
 
 const int stepsPerRevolution = 400;  // change this to fit the number of steps per revolution
@@ -31,21 +38,33 @@ Stepper myStepper(stepsPerRevolution, PIN_L1_IN1, PIN_L1_IN2, PIN_L1_IN3, PIN_L1
 void setup() {
   // set the speed at 60 rpm: 
   // tested at 120
-  //myStepper.setSpeed(180);
-  myStepper.setSpeed(100);
+  //myStepper.setSpeed(120); // for case rail
+  // 60 for belt???
+  myStepper.setSpeed(60); // for belt!!!
   // initialize the serial port:
   Serial.begin(9600);
+
+  pinMode(PIN_L1_ENA, OUTPUT);     
+  digitalWrite(PIN_L1_ENA, HIGH); // turn on the pullup
+  pinMode(PIN_L1_ENB, OUTPUT);     
+  digitalWrite(PIN_L1_ENB, HIGH); // turn on the pullup
+
 }
 
 void loop() {
   // step one revolution  in one direction:
   Serial.println("clockwise"); // moves the belt away from stepper
-  myStepper.step(2*stepsPerRevolution); 
+
+  //myStepper.step(16*stepsPerRevolution);  case rail
+  myStepper.step(2*stepsPerRevolution); // belt
   delay(1000);
 
   // step one revolution in the other direction:
   Serial.println("counterclockwise");
-  myStepper.step(-2*stepsPerRevolution);
+  // myStepper.step(-16*stepsPerRevolution); case rail
+  myStepper.step(-2*stepsPerRevolution);  // belt
+
+
   delay(1000);
 }
 
