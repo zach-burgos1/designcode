@@ -3,6 +3,9 @@
 
 // STEPPERS
 const int STEPS_PER_REV = 400
+const int SPEED_HOR = 60; 
+const int SPEED_VERT = 120; // IDEK
+const int SPEED_CASE = 120; 
 
 // PINS
 // MOTORS PINS
