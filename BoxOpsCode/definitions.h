@@ -35,8 +35,13 @@ const int PIN_L4_EN2 = 29;
 const int PIN_L4_IN3 = 25;
 const int PIN_L4_IN4 = 27;
 
-const int PIN_RELAY = 30;
+//RELAY
+const int PIN_RELAY = 11;
 
+// BreakBeam
+const int PIN_BB = 30;
+
+//SERVO
 const int SERVO_1 = 42;
 const int SERVO_2 = 46;
 
