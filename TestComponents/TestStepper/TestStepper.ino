@@ -21,12 +21,20 @@
 // const int PIN_L1_IN3 =  51;
 // const int PIN_L1_IN4 =  53;
 
-const int PIN_L1_ENA = 2; 
-const int PIN_L1_ENB = 7; 
-const int PIN_L1_IN1 =  3;
-const int PIN_L1_IN2 =  4;
-const int PIN_L1_IN3 =  5;
-const int PIN_L1_IN4 =  6;
+const int PIN_L1_ENA = 9; 
+const int PIN_L1_ENB = 10; 
+const int PIN_L1_IN1 =  33;
+const int PIN_L1_IN2 =  35;
+const int PIN_L1_IN3 =  37;
+const int PIN_L1_IN4 =  39;
+
+//Vertical 
+const int PIN_L2_EN1 = 9;
+const int PIN_L2_EN2 = 10;
+const int PIN_L2_IN1 = 33;
+const int PIN_L2_IN2 = 35;
+const int PIN_L2_IN3 = 37;
+const int PIN_L2_IN4 = 39;
 
 
 const int stepsPerRevolution = 400;  // change this to fit the number of steps per revolution
@@ -40,7 +48,7 @@ void setup() {
   // tested at 120
   //myStepper.setSpeed(120); // for case rail
   // 60 for belt???
-  myStepper.setSpeed(60); // for belt!!!
+  myStepper.setSpeed(120); // for belt!!!
   // initialize the serial port:
   Serial.begin(9600);
 

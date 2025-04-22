@@ -9,6 +9,7 @@
   // Pin 13: Teensy 3.0 has the LED on pin 13
 
 #define SENSORPIN 30
+const int PIN_BB = 30;
 
 // variables will change:
 int sensorState = 0, lastState=0;         // variable for reading the pushbutton status
