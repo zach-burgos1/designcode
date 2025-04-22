@@ -7,12 +7,12 @@ const int SPEED_HOR = 60;
 const int SPEED_VERT = 120; // IDEK
 const int SPEED_CASE = 120; 
 
-Stepper stepGantryH(STEPS_PER_REV, PIN_L1_IN1, PIN_L1_IN2, PIN_L1_IN3, PIN_L1_IN4); 
-Stepper stepGantryV(STEPS_PER_REV, PIN_L2_IN1, PIN_L2_IN2, PIN_L2_IN3, PIN_L2_IN4);
-Stepper stepCase(STEPS_PER_REV, PIN_L3_IN1, PIN_L3_IN2, PIN_L3_IN3, PIN_L3_IN4); 
+const int HOR_DELAY = 1000; 
+const int VERT_DELAY = 2000; 
+const int CASE_DELAY = 1000;
 
 // LINEAR ACTUATORS
-const int LINACT_DELAY = 3000; 
+const int LINACT_DELAY = 1000; 
 
 // PINS
 // MOTORS PINS
@@ -25,8 +25,8 @@ const int PIN_L1_IN3 = 5;
 const int PIN_L1_IN4 = 6;
 
 //Vertical 
-const int PIN_L2_EN1 = 41;
-const int PIN_L2_EN2 = 31;
+const int PIN_L2_EN1 = 9;
+const int PIN_L2_EN2 = 10;
 const int PIN_L2_IN1 = 33;
 const int PIN_L2_IN2 = 35;
 const int PIN_L2_IN3 = 37;
