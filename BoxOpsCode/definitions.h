@@ -6,35 +6,39 @@ const int STEPS_PER_REV = 400
 
 // PINS
 // MOTORS PINS
-const int PIN_L1_EN1 = -1;
-const int PIN_L1_EN2 = -1;
-const int PIN_L1_IN1 =  8;
-const int PIN_L1_IN2 =  9;
-const int PIN_L1_IN3 = 10;
-const int PIN_L1_IN4 = 11;
+//Horizontal 
+const int PIN_L1_EN1 = 2;
+const int PIN_L1_EN2 = 7;
+const int PIN_L1_IN1 = 3;
+const int PIN_L1_IN2 = 4;
+const int PIN_L1_IN3 = 5;
+const int PIN_L1_IN4 = 6;
 
-const int PIN_L2_EN1 = -1;
-const int PIN_L2_EN2 = -1;
-const int PIN_L2_IN1 = -1;
-const int PIN_L2_IN2 = -1;
-const int PIN_L2_IN3 = -1;
-const int PIN_L2_IN4 = -1;
+//Vertical 
+const int PIN_L2_EN1 = 41;
+const int PIN_L2_EN2 = 31;
+const int PIN_L2_IN1 = 33;
+const int PIN_L2_IN2 = 35;
+const int PIN_L2_IN3 = 37;
+const int PIN_L2_IN4 = 39;
 
-const int PIN_L3_EN1 = -1;
-const int PIN_L3_EN2 = -1;
-const int PIN_L3_IN1 = -1;
-const int PIN_L3_IN2 = -1;
-const int PIN_L3_IN3 = -1;
-const int PIN_L3_IN4 = -1;
+//Case
+const int PIN_L3_EN1 = 43;
+const int PIN_L3_EN2 = 53;
+const int PIN_L3_IN1 = 45;
+const int PIN_L3_IN2 = 47;
+const int PIN_L3_IN3 = 49;
+const int PIN_L3_IN4 = 51;
 
-const int PIN_L4_EN1 = -1;
-const int PIN_L4_EN2 = -1;
-const int PIN_L4_IN1 = -1;
-const int PIN_L4_IN2 = -1;
-const int PIN_L4_IN3 = -1;
-const int PIN_L4_IN4 = -1;
+//Linear Actuator
+const int PIN_L4_EN2 = 29;
+const int PIN_L4_IN3 = 25;
+const int PIN_L4_IN4 = 27;
 
-const int PIN_RELAY = -1;
+const int PIN_RELAY = 30;
+
+const int SERVO_1 = 42;
+const int SERVO_2 = 46;
 
 // SENSOR
 
