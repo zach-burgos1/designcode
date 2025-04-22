@@ -2,10 +2,17 @@
 #define DEFINITIONS_H
 
 // STEPPERS
-const int STEPS_PER_REV = 400
+const int STEPS_PER_REV = 400; 
 const int SPEED_HOR = 60; 
 const int SPEED_VERT = 120; // IDEK
 const int SPEED_CASE = 120; 
+
+Stepper stepGantryH(STEPS_PER_REV, PIN_L1_IN1, PIN_L1_IN2, PIN_L1_IN3, PIN_L1_IN4); 
+Stepper stepGantryV(STEPS_PER_REV, PIN_L2_IN1, PIN_L2_IN2, PIN_L2_IN3, PIN_L2_IN4);
+Stepper stepCase(STEPS_PER_REV, PIN_L3_IN1, PIN_L3_IN2, PIN_L3_IN3, PIN_L3_IN4); 
+
+// LINEAR ACTUATORS
+const int LINACT_DELAY = 3000; 
 
 // PINS
 // MOTORS PINS
