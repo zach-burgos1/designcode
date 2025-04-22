@@ -29,4 +29,9 @@ void initRelay(){
 }
 void initBB(){
   pinMode(PIN_BB, INPUT); 
+  digitalWrite(PIN_BB, HIGH); 
+}
+void initServos(){
+  servo1.attach(PIN_SERVO_1); 
+  servo2.attach(PIN_SERVO_2); 
 }

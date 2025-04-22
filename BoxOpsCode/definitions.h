@@ -8,7 +8,7 @@ const int SPEED_VERT = 120; // IDEK
 const int SPEED_CASE = 120; 
 
 const int HOR_DELAY = 1000; 
-const int VERT_DELAY = 2000; 
+const int VERT_DELAY = 5000; 
 const int CASE_DELAY = 1000;
 
 // LINEAR ACTUATORS
@@ -52,8 +52,8 @@ const int PIN_RELAY = 11;
 const int PIN_BB = 30;
 
 //SERVO
-const int SERVO_1 = 42;
-const int SERVO_2 = 46;
+const int PIN_SERVO_1 = 42;
+const int PIN_SERVO_2 = 46;
 
 // SENSOR
 
