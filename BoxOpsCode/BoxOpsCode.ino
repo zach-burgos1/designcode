@@ -18,7 +18,7 @@ void setup() {
   digitalWrite(PIN_L3_EN2, HIGH); 
 
   pinMode(PIN_RELAY, OUTPUT);
-  digitalWrite(PIN_RELAY, HIGH);
+  digitalWrite(PIN_RELAY, LOW);
 
   Serial.begin(9600);  
 }
@@ -81,7 +81,7 @@ void loop() {
   //delay(CASE_DELAY); 
   // digitalWrite(PIN_L3_EN1, LOW); 
   // digitalWrite(PIN_L3_EN2, LOW); 
-
+/*
   // RELAY
   sensorState = digitalRead(PIN_BB);
   if (!sensorState && lastState){
@@ -95,7 +95,7 @@ void loop() {
    extendLinAct();
    retractLinAct();
    digitalWrite(PIN_RELAY, HIGH);
-   action = true;
+   action = true;  //allows the LA to only work once while waiting for next product to load
   }
   if (count == 4){ //Grabs Products before the LA and resets basically every four.
     delay(1000);
@@ -105,9 +105,9 @@ void loop() {
     count = 0;
     action = false;
   }
-  
-
+*/
   // // SERVO
-  // servo1.writeMicroseconds(1850); 
-  // servo2.writeMicroseconds(475);  
+  servo1.write(90); 
+  servo2.write(90);
+  delay(1000);
 }

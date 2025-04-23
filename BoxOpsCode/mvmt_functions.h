@@ -5,7 +5,5 @@
 
 void retractLinAct();
 void extendLinAct();
-void vertBackwards();
-void caseBackwards();
 
 #endif // MVMT_FUNCTIONS_H
