@@ -2,6 +2,16 @@
 #include "init_functions.h"
 #include "mvmt_functions.h"
 
+enum CaseState {
+  DO_FORWARD,
+  WAIT_FORWARD,
+  DO_BACK,
+  WAIT_BACK
+};
+
+CaseState caseState = DO_FORWARD;
+unsigned long stateStart = 0;
+
 void setup() {
   // Setup Steppers & Linear Actuator
   initL298NS(); 
@@ -14,6 +24,7 @@ void setup() {
 
   // initServos(); 
 
+  // Enable the Case Driver
   digitalWrite(PIN_L3_EN1, HIGH); 
   digitalWrite(PIN_L3_EN2, HIGH); 
 
@@ -21,26 +32,54 @@ void setup() {
   digitalWrite(PIN_RELAY, LOW);
 
   Serial.begin(9600);  
+  
+  // Initialize timer
+  stateStart = millis();
 }
 
-// the loop function runs over and over again forever
 void loop() {
-
   
   // extendLinAct(); 
   // retractLinAct(); 
+  unsigned long now = millis();
 
-  // GANTRY HORIZONTAL
-  // digitalWrite(PIN_L1_EN1, HIGH);
-  // digitalWrite(PIN_L1_EN2, HIGH);
-  // stepGantryH.step(2*STEPS_PER_REV); // towards product
-  // delay(HOR_DELAY); 
-  // stepGantryH.step(-2*STEPS_PER_REV); // towards case
-  // delay(HOR_DELAY); 
-  // digitalWrite(PIN_L1_EN1, LOW);
-  // digitalWrite(PIN_L1_EN2, LOW);
+  switch (caseState) {
+    case DO_FORWARD:
+      // Do the 2-rev forward move
+      stepCase.step(2 * STEPS_PER_REV);
+      // Transition to waiting
+      stateStart = now;
+      caseState  = WAIT_FORWARD;
+      break;
 
-  // GANTRY VERTICAL  
+
+
+    case WAIT_FORWARD:
+      // After CASE_DELAY has elapsed, go do the reverse
+      if (now - stateStart >= CASE_DELAY) {
+        caseState  = DO_BACK;
+      }
+      break;
+
+    case DO_BACK:
+      // Do the 2-rev back move
+      stepCase.step(-2 * STEPS_PER_REV);
+      // Transition to waiting
+      stateStart = now;
+      caseState  = WAIT_BACK;
+      break;
+
+    case WAIT_BACK:
+      // After CASE_DELAY has elapsed, loop back to forward
+      if (now - stateStart >= CASE_DELAY) {
+        caseState = DO_FORWARD;
+      }
+      break;
+  }
+
+  // — You can insert other non-blocking tasks here —
+
+    // GANTRY VERTICAL  
   // delay(1000); 
   // digitalWrite(PIN_L2_EN1, HIGH);
   // digitalWrite(PIN_L2_EN2, HIGH);
@@ -111,3 +150,4 @@ void loop() {
   servo2.write(90);
   delay(1000);
 }
+
