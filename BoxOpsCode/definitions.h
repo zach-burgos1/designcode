@@ -1,6 +1,9 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
+#include <Stepper.h>
+#include <Servo.h>
+
 // STEPPERS
 const int STEPS_PER_REV = 400; 
 const int SPEED_HOR = 60; 
@@ -55,10 +58,12 @@ const int PIN_BB = 30;
 const int PIN_SERVO_1 = 42;
 const int PIN_SERVO_2 = 46;
 
-// SENSOR
-int count = 0;
-int sensorState = 0;
-int lastState = 0;
-bool action = false;
+// Stepper and Servo Objects
+Stepper stepGantryH(STEPS_PER_REV, PIN_L1_IN1, PIN_L1_IN2, PIN_L1_IN3, PIN_L1_IN4); 
+Stepper stepGantryV(STEPS_PER_REV, PIN_L2_IN1, PIN_L2_IN2, PIN_L2_IN3, PIN_L2_IN4);
+Stepper stepCase(STEPS_PER_REV, PIN_L3_IN1, PIN_L3_IN2, PIN_L3_IN3, PIN_L3_IN4); 
+
+Servo servo1; 
+Servo servo2; 
 
 #endif // DEFINITIONS_H

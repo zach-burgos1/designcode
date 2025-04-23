@@ -12,6 +12,12 @@ enum CaseState {
 CaseState caseState = DO_FORWARD;
 unsigned long stateStart = 0;
 
+// SENSOR
+int count = 0;
+int sensorState = 0;
+int lastState = 0;
+bool action = false; 
+
 void setup() {
   // Setup Steppers & Linear Actuator
   initL298NS(); 
@@ -32,7 +38,7 @@ void setup() {
   digitalWrite(PIN_RELAY, LOW);
 
   Serial.begin(9600);  
-  
+
   // Initialize timer
   stateStart = millis();
 }
