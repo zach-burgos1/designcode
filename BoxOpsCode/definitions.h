@@ -59,5 +59,6 @@ const int PIN_SERVO_2 = 46;
 int count = 0;
 int sensorState = 0;
 int lastState = 0;
+bool action = false;
 
 #endif // DEFINITIONS_H

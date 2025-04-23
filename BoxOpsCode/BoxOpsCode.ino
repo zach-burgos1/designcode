@@ -18,7 +18,7 @@ void setup() {
   digitalWrite(PIN_L3_EN2, HIGH); 
 
   pinMode(PIN_RELAY, OUTPUT);
-  digitalWrite(PIN_RELAY, LOW);
+  digitalWrite(PIN_RELAY, HIGH);
 
   Serial.begin(9600);  
 }
@@ -58,7 +58,7 @@ void loop() {
   // //digitalWrite(PIN_L2_EN1, LOW);
   // //digitalWrite(PIN_L2_EN2, LOW);
   // delay(1000); 
-
+/*
   // CASE RAIL
    digitalWrite(PIN_L3_EN1, HIGH); 
    digitalWrite(PIN_L3_EN2, HIGH); 
@@ -75,7 +75,7 @@ void loop() {
   //  delay(i*2981); 
   //} 
   //delay(CASE_DELAY); 
-
+*/
   //stepCase.step(-2*STEPS_PER_REV);
   //Serial.println("counterclockwise");
   //delay(CASE_DELAY); 
@@ -83,17 +83,19 @@ void loop() {
   // digitalWrite(PIN_L3_EN2, LOW); 
 
   // RELAY
-   digitalWrite(PIN_RELAY, HIGH); 
-   sensorState = digitalRead(PIN_BB);
-   if (!sensorState && lastState){
+  sensorState = digitalRead(PIN_BB);
+  if (!sensorState && lastState){
     count++; //Counts Products
-   }
-  if (count == 2) {
+  }
+  lastState = sensorState;
+  if (count == 2 && !action) {
     delay(1000);
    digitalWrite(PIN_RELAY, LOW);
    delay(1000);
    extendLinAct();
    retractLinAct();
+   digitalWrite(PIN_RELAY, HIGH);
+   action = true;
   }
   if (count == 4){ //Grabs Products before the LA and resets basically every four.
     delay(1000);
@@ -101,9 +103,9 @@ void loop() {
     servo2.writeMicroseconds(475);
   //  Go Up
     count = 0;
+    action = false;
   }
-  Serial.println(count);
-  lastState = sensorState;
+  
 
   // // SERVO
   // servo1.writeMicroseconds(1850); 
