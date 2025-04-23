@@ -12,7 +12,7 @@ const int VERT_DELAY = 5000;
 const int CASE_DELAY = 1000;
 
 // LINEAR ACTUATORS
-const int LINACT_DELAY = 1000; 
+const int LINACT_DELAY = 2000; 
 
 // PINS
 // MOTORS PINS
@@ -56,5 +56,9 @@ const int PIN_SERVO_1 = 42;
 const int PIN_SERVO_2 = 46;
 
 // SENSOR
+int count = 0;
+int cart = 0;
+int sensorState = 0;
+int lastState = 0;
 
 #endif // DEFINITIONS_H

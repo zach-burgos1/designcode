@@ -1,8 +1,8 @@
 #define BB_PIN 30
-#define DC_PIN 3
+#define DC_PIN 11
 
-#define LIN_PIN1 8
-#define LIN_PIN2 9
+#define LIN_PIN1 25
+#define LIN_PIN2 27
 
 #define CONV_RUNTIME 300
 
