@@ -81,37 +81,30 @@ void loop() {
   //delay(CASE_DELAY); 
   // digitalWrite(PIN_L3_EN1, LOW); 
   // digitalWrite(PIN_L3_EN2, LOW); 
-/*
+
   // RELAY
    digitalWrite(PIN_RELAY, HIGH); 
    sensorState = digitalRead(PIN_BB);
    if (!sensorState && lastState){
     count++; //Counts Products
    }
-  if (cart == 1){ //Grabs Products before the LA and resets basically every four.
-    delay(1000);
-    servo1.writeMicroseconds(1850);
-    servo2.writeMicroseconds(475);
-  //  Go Up
-    cart = 0;
-    count = 0;
-  }
   if (count == 2) {
     delay(1000);
    digitalWrite(PIN_RELAY, LOW);
    delay(1000);
    extendLinAct();
    retractLinAct();
-   cart++;
-   count = 0;
   }
-  // if (cart == 1){
-  //  servo1.writeMicroseconds(1850);
-  //  servo2.writeMicroseconds(475); 
-  //}
+  if (count == 4){ //Grabs Products before the LA and resets basically every four.
+    delay(1000);
+    servo1.writeMicroseconds(1850);
+    servo2.writeMicroseconds(475);
+  //  Go Up
+    count = 0;
+  }
   Serial.println(count);
   lastState = sensorState;
-  */
+
   // // SERVO
   // servo1.writeMicroseconds(1850); 
   // servo2.writeMicroseconds(475);  

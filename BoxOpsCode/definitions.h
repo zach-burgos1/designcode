@@ -57,7 +57,6 @@ const int PIN_SERVO_2 = 46;
 
 // SENSOR
 int count = 0;
-int cart = 0;
 int sensorState = 0;
 int lastState = 0;
 
