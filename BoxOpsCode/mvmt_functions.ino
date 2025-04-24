@@ -27,21 +27,6 @@ void extendLinAct(){
   
 }
 
-void gantryUp(){
-  digitalWrite(PIN_L2_EN1, HIGH);
-  digitalWrite(PIN_L2_EN2, HIGH);
-
-  int timeStart = millis(); 
-  int timeNow = millis(); 
-
-  while(timeNow - timeStart <= VERT_DELAY){
-    stepGantryV.step(2*STEPS_PER_REV); 
-    timeNow = millis(); 
-  }
-
-  digitalWrite(PIN_L2_EN1, LOW); 
-  digitalWrite(PIN_L2_EN2, LOW); 
-}
 void gantryDown(){
   digitalWrite(PIN_L2_EN1, HIGH);
   digitalWrite(PIN_L2_EN2, HIGH);
@@ -49,17 +34,60 @@ void gantryDown(){
   int timeStart = millis(); 
   int timeNow = millis(); 
 
-  while(timeNow - timeStart <= VERT_DELAY){
-    stepGantryV.step(-2*STEPS_PER_REV); 
-    timeNow = millis(); 
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 2000) { 
+    stepGantryV.step(2 * STEPS_PER_REV); // Execute step
   }
 
   digitalWrite(PIN_L2_EN1, LOW); 
   digitalWrite(PIN_L2_EN2, LOW); 
 }
+void gantryUp(){
+  digitalWrite(PIN_L2_EN1, HIGH);
+  digitalWrite(PIN_L2_EN2, HIGH);
+
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 2000) { 
+    stepGantryV.step(-2 * STEPS_PER_REV); // Execute step
+  }
+
+  digitalWrite(PIN_L2_EN1, LOW);
+  digitalWrite(PIN_L2_EN2, LOW);
+}
+
+void caseForward(){
+  digitalWrite(PIN_L3_EN1, HIGH);
+  digitalWrite(PIN_L3_EN2, HIGH);
+
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 2000) { 
+    stepCase.step(-2 * STEPS_PER_REV); // Execute step
+  }
+
+  digitalWrite(PIN_L3_EN1, LOW);
+  digitalWrite(PIN_L3_EN2, LOW);
+}
+
+void caseBackward(){
+  digitalWrite(PIN_L3_EN1, HIGH);
+  digitalWrite(PIN_L3_EN2, HIGH);
+
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 4000) { 
+    stepCase.step(2 * STEPS_PER_REV); // Execute step
+  }
+
+  digitalWrite(PIN_L3_EN1, LOW);
+  digitalWrite(PIN_L3_EN2, LOW);
+}
 
 void clawOpen(){
-
+  servo1.writeMicroseconds(1500);
+  servo2.writeMicroseconds(1500);
 }
 void clawClose(){
   servo1.writeMicroseconds(1850); 

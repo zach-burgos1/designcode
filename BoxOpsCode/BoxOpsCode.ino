@@ -18,22 +18,23 @@ void setup() {
   // Setup Breakbeam
   initBB();
 
-  initServos(); 
+  //initServos(); 
 
   // Enable the Case Driver
   digitalWrite(PIN_L3_EN1, HIGH); 
   digitalWrite(PIN_L3_EN2, HIGH); 
 
   pinMode(PIN_RELAY, OUTPUT);
-  digitalWrite(PIN_RELAY, LOW);
+  digitalWrite(PIN_RELAY, HIGH);
 
   Serial.begin(9600);  
 
   // Initialize timer
-  stateStart = millis();
+//  stateStart = millis();
 }
 
 void loop() {
+
   // RELAY
   sensorState = digitalRead(PIN_BB);
   if (!sensorState && lastState){
@@ -52,16 +53,14 @@ void loop() {
   if (count == 4){ //Grabs Products before the LA and resets basically every four.
     delay(1000);
     clawClose(); 
-  //  Go Up
+    caseBackward();
     count = 0;
     action = false;
   }
 
-
+  
 
   // SERVO
-  // servo1.write(90); 
-  // servo2.write(90);
-  // delay(1000);
+  
 }
 

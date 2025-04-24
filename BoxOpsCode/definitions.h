@@ -8,11 +8,12 @@
 const int STEPS_PER_REV = 400; 
 const int SPEED_HOR = 60; 
 const int SPEED_VERT = 120; // IDEK
-const int SPEED_CASE = 120; 
+const int SPEED_CASE = 110; 
 
 const int HOR_DELAY = 1000; 
 const int VERT_DELAY = 5000; 
 const int CASE_DELAY = 1000;
+
 
 // LINEAR ACTUATORS
 const int LINACT_DELAY = 2000; 

@@ -14,6 +14,9 @@ void extendLinAct();
 void gantryUp(); 
 void gantryDown();
 
+void caseForward();
+void caseBackward();
+
 void clawOpen(); 
 void clawClose(); 
 
