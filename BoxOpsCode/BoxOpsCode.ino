@@ -18,7 +18,11 @@ void setup() {
   // Setup Breakbeam
   initBB();
 
-  //initServos(); 
+  initServos(); 
+  clawOpen(); 
+  // clawClose(); 
+  // retractLinAct(); 
+  return; 
 
   // Enable the Case Driver
   digitalWrite(PIN_L3_EN1, HIGH); 
@@ -34,6 +38,27 @@ void setup() {
 }
 
 void loop() {
+  // clawSemiClose();
+  // return;
+
+  
+  clawOpen(); 
+  delay(1000); 
+  extendLinAct();
+  retractLinAct();
+  delay(1000);
+
+  gantryUp();
+  delay(2000); 
+  clawSemiClose();
+  delay(1000); 
+  gantryDown();
+  delay(2000);
+  clawClose();
+  delay(1000);
+  gantryUp();
+  delay(1000);
+  return;
 
   // RELAY
   sensorState = digitalRead(PIN_BB);
