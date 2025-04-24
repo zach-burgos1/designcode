@@ -93,10 +93,3 @@ void clawClose(){
   servo1.writeMicroseconds(1850); 
   servo2.writeMicroseconds(475); 
 }
-
-void caseExport(){
-  
-}
-void caseImport(){
-
-}
