@@ -120,7 +120,7 @@ void gantryPull(){
   digitalWrite(PIN_L1_EN1, HIGH);
   digitalWrite(PIN_L1_EN2, HIGH);
 
-  stepGantryH.step(4.1 * STEPS_PER_REV);
+  stepGantryH.step(4.15 * STEPS_PER_REV);
   delay(500); 
 
   // unsigned long startMillis = millis(); // Capture the start time
@@ -138,17 +138,15 @@ void gantryPush(){
   digitalWrite(PIN_L1_EN1, HIGH);
   digitalWrite(PIN_L1_EN2, HIGH);
 
+/*  
   stepGantryH.step(-4.1*STEPS_PER_REV); 
   delay(500);
+*/
+  while(digitalRead(PIN_LIMIT)){
+    stepGantryH.step(-0.1*STEPS_PER_REV);
+  }
+  delay(500);
 
-  // unsigned long startMillis = millis(); // Capture the start time
-
-  // while (millis() - startMillis < HOR_DELAY) { 
-  //   stepGantryH.step(-2 * STEPS_PER_REV); // Execute step
-  // }
-
-  // stepGantryH.step(-2*STEPS_PER_REV); // towards case
-  // delay(HOR_DELAY); 
   digitalWrite(PIN_L1_EN1, LOW);
   digitalWrite(PIN_L1_EN2, LOW);
 }
@@ -185,19 +183,23 @@ void clawOpen(){
   servo1.writeMicroseconds(600);
   delay(1000);
   servo2.writeMicroseconds(1900);
+  delay(1000);
 }
 void clawSemiCloseLoad(){
   servo1.writeMicroseconds(1200);
   delay(1000); 
-  servo2.writeMicroseconds(1265); 
+  servo2.writeMicroseconds(1300); 
+  delay(1000);
 }
 void clawSemiCloseCase(){
   servo1.writeMicroseconds(1200);
   delay(1000); 
   servo2.writeMicroseconds(1255); 
+  delay(1000);
 }
 void clawClose(){
   servo1.writeMicroseconds(1300);
   delay(1000); 
   servo2.writeMicroseconds(1200); 
+  delay(1000);
 }

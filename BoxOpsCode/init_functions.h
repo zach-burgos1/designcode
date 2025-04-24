@@ -6,5 +6,7 @@
 void initL298NS();
 void initRelay();
 void initBB();
+void initServos();
+void initLimit(); 
 
 #endif // L298N_FUNCTIONS_H

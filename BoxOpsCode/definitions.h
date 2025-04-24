@@ -12,7 +12,7 @@ const int SPEED_CASE = 110;
 
 const int HOR_DELAY = 1000; 
 const int VERT_DELAY = 2500; 
-const int CASE_DELAY = 9500;
+const int CASE_DELAY = 7000;//9500;
 
 
 // LINEAR ACTUATORS
@@ -51,6 +51,9 @@ const int PIN_L4_IN4 = 27;
 
 //RELAY
 const int PIN_RELAY = 11;
+
+// LIMIT SWITCH
+const int PIN_LIMIT = 52; 
 
 // BreakBeam
 const int PIN_BB = 30;

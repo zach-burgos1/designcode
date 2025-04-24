@@ -36,3 +36,7 @@ void initServos(){
   servo1.attach(PIN_SERVO_1); 
   servo2.attach(PIN_SERVO_2); 
 }
+
+void initLimit(){
+  pinMode(PIN_LIMIT, INPUT_PULLUP); 
+}

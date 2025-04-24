@@ -20,11 +20,32 @@ void setup() {
   initBB();
 
   initServos(); 
+
+  initLimit(); 
+
   clawOpen(); 
   retractLinAct();
+
+  caseBackward(); 
+  delay(2000);
+  caseForward(); 
+
+
+  // Serial.begin(9600); 
 }
 
 void loop() {
+  // if(digitalRead(PIN_LIMIT)){
+  //   Serial.println("pressed");
+  // } else {
+  //   Serial.println("Not pressed"); 
+  // }
+
+  // gantryPush();
+  // gantryPull();
+
+  // return; 
+
 
   conveyorBeltOn();
   // RELAY
@@ -57,11 +78,11 @@ void loop() {
     gantryUp();
     delay(1000); 
     clawSemiCloseLoad();
-    delay(1000); 
+    delay(250); 
     gantryDown();
     delay(1000);
     clawClose();
-    delay(1000);
+    delay(250);
     gantryUp();
     delay(1000);
     gantryPush(); 
@@ -88,6 +109,11 @@ void loop() {
     delay(250); 
     caseBackward(); 
     delay(250); 
+
+    caseBackward(); 
+    delay(2000); 
+    caseForward();
+    delay(250);
     countphase = 0; 
   }
 }
