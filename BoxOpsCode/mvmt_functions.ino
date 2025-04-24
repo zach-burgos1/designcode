@@ -1,5 +1,12 @@
 #include "mvmt_functions.h"
 
+void conveyorBeltOn(){
+  digitalWrite(PIN_RELAY, HIGH); 
+}
+void conveyorBeltOff(){
+  digitalWrite(PIN_RELAY, LOW); 
+}
+
 void retractLinAct(){
   digitalWrite(PIN_L4_EN2, HIGH); 
 
@@ -59,7 +66,7 @@ void clawClose(){
 }
 
 void caseExport(){
-
+  
 }
 void caseImport(){
 

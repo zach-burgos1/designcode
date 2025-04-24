@@ -5,6 +5,8 @@
 #include <Stepper.h>
 #include <Servo.h>
 
+void conveyorBeltOn();
+void conveyorBeltOff();
 
 void retractLinAct();
 void extendLinAct();
