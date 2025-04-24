@@ -62,6 +62,33 @@ void partExtLinAct(){
   digitalWrite(PIN_L4_EN2, LOW); 
 }
 
+void gantryDownCase(){
+  digitalWrite(PIN_L2_EN1, HIGH);
+  digitalWrite(PIN_L2_EN2, HIGH);
+
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 0.7*VERT_DELAY) { 
+    stepGantryV.step(2 * STEPS_PER_REV); // Execute step
+  }
+
+  digitalWrite(PIN_L2_EN1, LOW); 
+  digitalWrite(PIN_L2_EN2, LOW); 
+}
+void gantryUpCase(){
+  digitalWrite(PIN_L2_EN1, HIGH);
+  digitalWrite(PIN_L2_EN2, HIGH);
+
+  unsigned long startMillis = millis(); // Capture the start time
+
+  while (millis() - startMillis < 0.7*VERT_DELAY) { 
+    stepGantryV.step(-2 * STEPS_PER_REV); // Execute step
+  }
+
+  digitalWrite(PIN_L2_EN1, LOW);
+  digitalWrite(PIN_L2_EN2, LOW);
+}
+
 void gantryDown(){
   digitalWrite(PIN_L2_EN1, HIGH);
   digitalWrite(PIN_L2_EN2, HIGH);
@@ -89,19 +116,39 @@ void gantryUp(){
   digitalWrite(PIN_L2_EN2, LOW);
 }
 
-void gantryPush(){
-  digitalWrite(PIN_L1_EN1, HIGH);
-  digitalWrite(PIN_L1_EN2, HIGH);
-  stepGantryH.step(2*STEPS_PER_REV); // towareds product
-  delay(HOR_DELAY); 
-  digitalWrite(PIN_L1_EN1, LOW);
-  digitalWrite(PIN_L1_EN2, LOW);
-}
 void gantryPull(){
   digitalWrite(PIN_L1_EN1, HIGH);
   digitalWrite(PIN_L1_EN2, HIGH);
-  stepGantryH.step(-2*STEPS_PER_REV); // towards case
-  delay(HOR_DELAY); 
+
+  stepGantryH.step(4.1 * STEPS_PER_REV);
+  delay(500); 
+
+  // unsigned long startMillis = millis(); // Capture the start time
+
+  // while (millis() - startMillis < HOR_DELAY) { 
+  //   stepGantryH.step(2 * STEPS_PER_REV); // Execute step
+  // }
+
+  // stepGantryH.step(2*STEPS_PER_REV); // towareds product
+  // delay(HOR_DELAY); 
+  digitalWrite(PIN_L1_EN1, LOW);
+  digitalWrite(PIN_L1_EN2, LOW);
+}
+void gantryPush(){
+  digitalWrite(PIN_L1_EN1, HIGH);
+  digitalWrite(PIN_L1_EN2, HIGH);
+
+  stepGantryH.step(-4.1*STEPS_PER_REV); 
+  delay(500);
+
+  // unsigned long startMillis = millis(); // Capture the start time
+
+  // while (millis() - startMillis < HOR_DELAY) { 
+  //   stepGantryH.step(-2 * STEPS_PER_REV); // Execute step
+  // }
+
+  // stepGantryH.step(-2*STEPS_PER_REV); // towards case
+  // delay(HOR_DELAY); 
   digitalWrite(PIN_L1_EN1, LOW);
   digitalWrite(PIN_L1_EN2, LOW);
 }
@@ -112,7 +159,7 @@ void caseForward(){
 
   unsigned long startMillis = millis(); // Capture the start time
 
-  while (millis() - startMillis < 2000) { 
+  while (millis() - startMillis < CASE_DELAY) { 
     stepCase.step(-2 * STEPS_PER_REV); // Execute step
   }
 
@@ -126,7 +173,7 @@ void caseBackward(){
 
   unsigned long startMillis = millis(); // Capture the start time
 
-  while (millis() - startMillis < 4000) { 
+  while (millis() - startMillis < CASE_DELAY) { 
     stepCase.step(2 * STEPS_PER_REV); // Execute step
   }
 
@@ -138,7 +185,11 @@ void clawOpen(){
   servo1.writeMicroseconds(600);
   servo2.writeMicroseconds(1900);
 }
-void clawSemiClose(){
+void clawSemiCloseLoad(){
+  servo1.writeMicroseconds(1200); 
+  servo2.writeMicroseconds(1265); 
+}
+void clawSemiCloseCase(){
   servo1.writeMicroseconds(1200); 
   servo2.writeMicroseconds(1255); 
 }

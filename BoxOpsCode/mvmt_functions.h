@@ -13,6 +13,9 @@ void extendLinAct();
 
 void partExtLinAct();
 
+void gantryUpCase(); 
+void gantryDownCase();
+
 void gantryUp(); 
 void gantryDown();
 
@@ -24,6 +27,8 @@ void caseBackward();
 
 void clawOpen(); 
 void clawClose(); 
+void clawSemiCloseLoad();
+void clawSemiCloseCase();
 
 void caseExport(); 
 void caseImport(); 

@@ -4,6 +4,7 @@
 
 // SENSOR
 int count = 0;
+int countphase = 0; 
 int sensorState = 0;
 int lastState = 0;
 bool action = false; 
@@ -36,16 +37,67 @@ void setup() {
 
   // Initialize timer
 //  stateStart = millis();
+
+  digitalWrite(PIN_L1_EN1, HIGH);
+  digitalWrite(PIN_L1_EN2, HIGH);
 }
 
 void loop() {
-  // partExtLinAct(); 
-  // delay(5000);
-  // gantryUp();
-  // delay(2000);
-  // gantryDown();
-  // delay(2000);
-  // return;
+  /*gantryUp();
+  gantryPush(); 
+
+  clawClose();
+
+  gantryDown(); 
+  gantryUp(); 
+
+  gantryPull(); 
+
+  return; 
+
+  stepGantryH.step(-3.9 * STEPS_PER_REV);
+  delay(500); 
+
+  stepGantryH.step(3.9*STEPS_PER_REV); 
+  delay(500);
+
+  return; 
+
+  gantryPush(); 
+  delay(1000); 
+  gantryPull();
+  delay(1000); 
+  return; 
+
+  caseForward();
+  delay(1000); 
+  caseBackward(); 
+  delay(1000);
+
+  return;
+
+/*  gantryPush();
+  delay(2000);
+  gantryPull(); 
+  delay(2000); *//*
+  gantryUp();
+  delay(1000); 
+  clawSemiClose();
+  delay(1000); 
+  gantryDown();
+  delay(1000);
+  clawClose();
+  delay(1000);
+  gantryUp();
+  delay(1000);
+  gantryDown();
+  delay(1000);    
+
+//  gantryDown();
+//  delay(1000);
+//  gantryUp();
+//  delay(1000);
+  return;*/
 
   conveyorBeltOn();
   // RELAY
@@ -74,7 +126,7 @@ void loop() {
 
     gantryUp();
     delay(1000); 
-    clawSemiClose();
+    clawSemiCloseLoad();
     delay(1000); 
     gantryDown();
     delay(1000);
@@ -82,11 +134,33 @@ void loop() {
     delay(1000);
     gantryUp();
     delay(1000);
-    gantryDown();
+    gantryPush(); 
+    delay(1000); 
+    gantryDownCase(); 
+    delay(1000); 
+    clawSemiCloseCase(); 
+    delay(1000);
+    gantryUpCase(); 
+    delay(1000);
+    gantryPull(); 
+    delay(1000); 
+    clawOpen(); 
+    delay(1000); 
+    gantryDown(); 
+
+    // gantryDown();
     delay(1000);
 
     count = 0;
+    countphase++; 
     action = false;
+  }
+  if(countphase == 2){
+    caseForward();
+    delay(2000); 
+    caseBackward(); 
+    delay(2000); 
+    countphase = 0; 
   }
 
   

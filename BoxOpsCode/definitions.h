@@ -6,13 +6,13 @@
 
 // STEPPERS
 const int STEPS_PER_REV = 400; 
-const int SPEED_HOR = 60; 
+const int SPEED_HOR = 60; //80; // 30;//60; 
 const int SPEED_VERT = 120; // IDEK
 const int SPEED_CASE = 110; 
 
 const int HOR_DELAY = 1000; 
 const int VERT_DELAY = 2500; 
-const int CASE_DELAY = 1000;
+const int CASE_DELAY = 9500;
 
 
 // LINEAR ACTUATORS
@@ -23,10 +23,10 @@ const int LINACT_DELAY = 2000;
 //Horizontal 
 const int PIN_L1_EN1 = 2;
 const int PIN_L1_EN2 = 7;
-const int PIN_L1_IN1 = 3;
-const int PIN_L1_IN2 = 4;
-const int PIN_L1_IN3 = 5;
-const int PIN_L1_IN4 = 6;
+const int PIN_L1_IN1 = 6;
+const int PIN_L1_IN2 = 5;
+const int PIN_L1_IN3 = 4;
+const int PIN_L1_IN4 = 3;
 
 //Vertical 
 const int PIN_L2_EN1 = 9;
