@@ -86,10 +86,14 @@ void caseBackward(){
 }
 
 void clawOpen(){
-  servo1.writeMicroseconds(1500);
+  servo1.writeMicroseconds(1000);
   servo2.writeMicroseconds(1500);
 }
+void clawSemiClose(){
+  servo1.writeMicroseconds(1200); 
+  servo2.writeMicroseconds(1275); 
+}
 void clawClose(){
-  servo1.writeMicroseconds(1850); 
-  servo2.writeMicroseconds(475); 
+  servo1.writeMicroseconds(1300); 
+  servo2.writeMicroseconds(1200); 
 }
