@@ -183,17 +183,21 @@ void caseBackward(){
 
 void clawOpen(){
   servo1.writeMicroseconds(600);
+  delay(1000);
   servo2.writeMicroseconds(1900);
 }
 void clawSemiCloseLoad(){
-  servo1.writeMicroseconds(1200); 
+  servo1.writeMicroseconds(1200);
+  delay(1000); 
   servo2.writeMicroseconds(1265); 
 }
 void clawSemiCloseCase(){
-  servo1.writeMicroseconds(1200); 
+  servo1.writeMicroseconds(1200);
+  delay(1000); 
   servo2.writeMicroseconds(1255); 
 }
 void clawClose(){
-  servo1.writeMicroseconds(1300); 
+  servo1.writeMicroseconds(1300);
+  delay(1000); 
   servo2.writeMicroseconds(1200); 
 }
