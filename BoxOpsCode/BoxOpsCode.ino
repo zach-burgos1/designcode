@@ -49,14 +49,16 @@ void loop() {
   delay(1000);
 
   gantryUp();
-  delay(2000); 
+  delay(1000); 
   clawSemiClose();
   delay(1000); 
   gantryDown();
-  delay(2000);
+  delay(1000);
   clawClose();
   delay(1000);
   gantryUp();
+  delay(1000);
+  gantryDown();
   delay(1000);
   return;
 
