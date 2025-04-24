@@ -33,7 +33,7 @@ void loop() {
     count++; //Counts Products
     delay(250);
     conveyorBeltOff();
-    if(count == 1){
+    if(count == 1 || 3){
       delay(4000);
     }
     
@@ -49,20 +49,21 @@ void loop() {
     action = true;  //allows the LA to only work once while waiting for next product to load
   }
   if (count == 4){ //Grabs Products before the LA and resets basically every four.
-    delay(250);
+    delay(1000);
     partExtLinAct();
-    delay(250);
+    retractLinAct();
+    delay(1000);
 
     gantryUp();
-    delay(250); 
+    delay(1000); 
     clawSemiCloseLoad();
-    delay(250); 
+    delay(1000); 
     gantryDown();
-    delay(250);
+    delay(1000);
     clawClose();
-    delay(250);
+    delay(1000);
     gantryUp();
-    delay(250);
+    delay(1000);
     gantryPush(); 
     delay(1000); 
     gantryDownCase(); 
