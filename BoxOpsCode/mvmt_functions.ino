@@ -26,17 +26,49 @@ void extendLinAct(){
   digitalWrite(PIN_L4_EN2, LOW); 
   
 }
+void partExtLinAct(){
+  // Set direction to extend
+  digitalWrite(PIN_L4_IN3, LOW);
+  digitalWrite(PIN_L4_IN4, HIGH);
+
+  // Set PWM speed (0-255)
+  analogWrite(PIN_L4_EN2, 200);  // Lower value = slower speed
+
+  // Run for a precise time
+  delay(300);  // Adjust to how far you want to extend
+
+  // Stop actuator
+  analogWrite(PIN_L4_EN2, 0);
+
+  digitalWrite(PIN_L4_IN3, HIGH); 
+  digitalWrite(PIN_L4_IN4, LOW); 
+  unsigned long startTime = millis();
+  while(millis() - startTime < 100){delay(1);}
+  delay(1000);
+
+  return;
+
+  digitalWrite(PIN_L4_EN2, HIGH); 
+  // unsigned long startTime = millis(); 
+
+  digitalWrite(PIN_L4_IN3, LOW); 
+  digitalWrite(PIN_L4_IN4, HIGH); 
+  while(millis() - startTime < 100){delay(1);}
+  digitalWrite(PIN_L4_IN3, HIGH); 
+  digitalWrite(PIN_L4_IN4, LOW); 
+  startTime = millis();
+  while(millis() - startTime < 100){delay(1);}
+
+  digitalWrite(PIN_L4_EN2, LOW); 
+}
 
 void gantryDown(){
   digitalWrite(PIN_L2_EN1, HIGH);
   digitalWrite(PIN_L2_EN2, HIGH);
 
-  int timeStart = millis(); 
-  int timeNow = millis(); 
-
   unsigned long startMillis = millis(); // Capture the start time
 
-  while (millis() - startMillis < 2000) { 
+  while (millis() - startMillis < VERT_DELAY) { 
     stepGantryV.step(2 * STEPS_PER_REV); // Execute step
   }
 
@@ -49,12 +81,29 @@ void gantryUp(){
 
   unsigned long startMillis = millis(); // Capture the start time
 
-  while (millis() - startMillis < 2000) { 
+  while (millis() - startMillis < VERT_DELAY) { 
     stepGantryV.step(-2 * STEPS_PER_REV); // Execute step
   }
 
   digitalWrite(PIN_L2_EN1, LOW);
   digitalWrite(PIN_L2_EN2, LOW);
+}
+
+void gantryPush(){
+  digitalWrite(PIN_L1_EN1, HIGH);
+  digitalWrite(PIN_L1_EN2, HIGH);
+  stepGantryH.step(2*STEPS_PER_REV); // towareds product
+  delay(HOR_DELAY); 
+  digitalWrite(PIN_L1_EN1, LOW);
+  digitalWrite(PIN_L1_EN2, LOW);
+}
+void gantryPull(){
+  digitalWrite(PIN_L1_EN1, HIGH);
+  digitalWrite(PIN_L1_EN2, HIGH);
+  stepGantryH.step(-2*STEPS_PER_REV); // towards case
+  delay(HOR_DELAY); 
+  digitalWrite(PIN_L1_EN1, LOW);
+  digitalWrite(PIN_L1_EN2, LOW);
 }
 
 void caseForward(){

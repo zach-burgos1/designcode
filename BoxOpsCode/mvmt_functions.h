@@ -11,8 +11,13 @@ void conveyorBeltOff();
 void retractLinAct();
 void extendLinAct();
 
+void partExtLinAct();
+
 void gantryUp(); 
 void gantryDown();
+
+void gantryPush();
+void gantryPull();
 
 void caseForward();
 void caseBackward();

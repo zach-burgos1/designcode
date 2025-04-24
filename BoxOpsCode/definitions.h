@@ -11,7 +11,7 @@ const int SPEED_VERT = 120; // IDEK
 const int SPEED_CASE = 110; 
 
 const int HOR_DELAY = 1000; 
-const int VERT_DELAY = 5000; 
+const int VERT_DELAY = 2500; 
 const int CASE_DELAY = 1000;
 
 
@@ -45,7 +45,7 @@ const int PIN_L3_IN3 = 49;
 const int PIN_L3_IN4 = 51;
 
 //Linear Actuator
-const int PIN_L4_EN2 = 29;
+const int PIN_L4_EN2 = 1;
 const int PIN_L4_IN3 = 25;
 const int PIN_L4_IN4 = 27;
 
